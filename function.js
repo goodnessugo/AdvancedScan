@@ -330,7 +330,7 @@ function checkout() {
     let receiptHTML = "";
 
 receiptHTML += "<h3>Receipt</h3>";
-receiptHTML += "<p>ID: " + receiptDiv + "</p>";
+receiptHTML += "<p>ID: " + receiptId + "</p>";
 receiptHTML += "<p>Store: " + storeName + "</p>";
 receiptHTML += "<hr>";
 
@@ -350,9 +350,9 @@ for(let code in cart) {
 }
 
 receiptHTML += "<hr>";
-receiptHTML  += "<b>Total: ₦" +totalAmount + "</br>";
+receiptHTML  += "<b>Total: ₦" + totalAmount + "</br>";
 
-receiptDiv.innerHtml = receiptHTML;
+receiptDiv.innerHTML = receiptHTML;
 
 
 // save receipt
