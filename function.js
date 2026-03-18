@@ -286,6 +286,26 @@ function updateCart() {
 
 
 
+// ---------add quantity button-----------
+function addQty(code) {
+    cart[code].qty++;
+
+    updateCart();
+}
+
+
+// ----------minus quantity button ------------
+function minusQty(code){
+    cart[code].qty--;
+
+    if(cart[code].qty <= 0) {
+        delete cart[code];
+    }
+
+    updateCart();
+
+}
+
 
 //------ Checkout Code -----------
 function checkout() {
