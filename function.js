@@ -309,12 +309,70 @@ function minusQty(code){
 
 //------ Checkout Code -----------
 function checkout() {
-    alert("Total = ₦" + total);
+    // alert("Total = ₦" + total);
 
+    // cart = {};
+    // total = 0;
+
+
+    // updateCart();
+
+
+    if(Object.keys(cart).length === 0) {
+        alert("Cart is empty");
+        return;
+    }
+
+    let receiptDiv = document.getElementById("receipt");
+    let storeName = localStorage.getItem("store_name");
+    let receiptId = "RCPT-" + Date.now();
+
+    let receiptHTML = "";
+
+receiptHTML += "<h3>Receipt</h3>";
+receiptHTML += "<p>ID: " + receiptDiv + "</p>";
+receiptHTML += "<p>Store: " + storeName + "</p>";
+receiptHTML += "<hr>";
+
+
+let totalAmount = 0;
+
+for(let code in cart) {
+    let item = cart[code];
+
+    let itemTotal = item.price *  item.qty;
+
+    totalAmount += itemTotal;
+
+    receiptHTML += 
+    item.name + " | ₦" + item.price + "x" + item.qty + " = ₦" + itemTotal + "<br>";
+
+}
+
+receiptHTML += "<hr>";
+receiptHTML  += "<b>Total: ₦" +totalAmount + "</br>";
+
+receiptDiv.innerHtml = receiptHTML;
+
+
+// save receipt
+saveReceipt(receiptId, totalAmount)
+}
+
+
+// -----------------SAVE RECEIPT FUNCTION ------------
+function saveReceipt(id, totalAmount) {
+
+    let receiptData = {
+        id: id,
+        total: totalAmount,
+        cart: cart,
+        store: localStorage.getItem("store_id"),
+        time: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("last-receipt", JSON.stringify(receiptData));
     cart = {};
-    total = 0;
-
-
     updateCart();
 }
 

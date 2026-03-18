@@ -10,13 +10,13 @@
 </head>
 
 <body>
-<div class="container">
- <h1>Supermarket POS</h1>
+    <div class="container">
+        <h1>Supermarket POS</h1>
 
         <div id="reader"></div>
 
         <!-- add audio beep sound -->
-         <audio src="./audio/beep2.mp3" id="beep"></audio>
+        <audio src="./audio/beep2.mp3" id="beep"></audio>
 
         <h3>Cart</h3>
         <ul id="cart"></ul>
@@ -30,20 +30,23 @@
         <button onclick="checkout()">Checkout</button>
         <button onclick="stopScanner()">Stop</button>
 
- <h2>Select Store</h2>
+        <h2>Select Store</h2>
 
-    <select id="storeSelect">
-        <option value="">-- Choose Store --</option>
-    </select>
+        <select id="storeSelect">
+            <option value="">-- Choose Store --</option>
+        </select>
 
-    <br><br>
+        <br><br>
 
-    <button onclick="selectStore()">Enter Store</button>
+        <button onclick="selectStore()">Enter Store</button>
 
-    <p id="currentStore"></p>
-</div>
+        <p id="currentStore"></p>
+    </div>
 
-   
+    <!-- Receipt Section -->
+    <h2>Receipt</h2>
+    <h2 id="receipt"></h2>
+
 
 
 
