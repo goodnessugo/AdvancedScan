@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Scan App</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+<div class="container">
+ <h1>Supermarket POS</h1>
+
+        <div id="reader"></div>
+
+        <!-- add audio beep sound -->
+         <audio src="./audio/beep2.mp3" id="beep"></audio>
+
+        <h3>Cart</h3>
+        <ul id="cart"></ul>
+
+        <h3 id="total">Total: ₦ 0</h3>
+
+
+        <p id="result">Result: None</p>
+
+        <button onclick="startScanner()">Start</button>
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="stopScanner()">Stop</button>
+
+ <h2>Select Store</h2>
+
+    <select id="storeSelect">
+        <option value="">-- Choose Store --</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="selectStore()">Enter Store</button>
+
+    <p id="currentStore"></p>
+</div>
+
+   
+
+
+
+    <!-- QR / Barcode Library -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="./function.js"></script>
+</body>
+
+</html>
