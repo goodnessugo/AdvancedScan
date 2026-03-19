@@ -274,8 +274,8 @@ function updateCart() {
         total += itemTotal;
 
         li.innerHTML = item.name + " | ₦" + item.price + " | Qty: " + item.qty +
-            "<button onclick=\"addQty('" + code + "')\"> + </button>" +
-            "<button onclick=\"minusQty('" + code + "')\"> - </button>" + " = ₦" + itemTotal;
+            "<button onclick=\"addQty('" + code + "')\"  class='addBtn'> + </button>" +
+            "<button onclick=\"minusQty('" + code + "')\"  class  ='minusBtn'> - </button>" + " = ₦" + itemTotal;
 
         cartList.appendChild(li);
 
