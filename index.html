@@ -13,6 +13,21 @@
     <div class="container">
         <h1>Supermarket POS</h1>
 
+
+        <h2>Select Store</h2>
+
+        <select id="storeSelect">
+            <option value="">-- Choose Store --</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="selectStore()">Enter Store</button>
+
+        <p id="currentStore"></p>
+
+<hr>
+        <!-- Scanner Reader -->
         <div id="reader"></div>
 
         <!-- add audio beep sound -->
@@ -30,33 +45,24 @@
         <button onclick="checkout()">Checkout</button>
         <button onclick="stopScanner()">Stop</button>
 
-        <h2>Select Store</h2>
 
-        <select id="storeSelect">
-            <option value="">-- Choose Store --</option>
-        </select>
-
-        <br><br>
-
-        <button onclick="selectStore()">Enter Store</button>
-
-        <p id="currentStore"></p>
     </div>
-
+<hr>
     <!-- Receipt Section -->
     <h2>Receipt</h2>
     <h2 id="receipt"></h2>
 
-
+<hr>
+<h2>CheckOut Scan</h2>
     <!-- qr code generetor -->
-     <div id="qrcode"></div>
+    <div id="qrcode"></div>
 
 
 
 
     <!-- QR / Barcode Library Scanner -->
     <script src="https://unpkg.com/html5-qrcode"></script>
-    
+
     <!-- QR Code Generator -->
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
     <script src="./function.js"></script>
