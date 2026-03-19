@@ -14,7 +14,7 @@
         <h1>Supermarket POS</h1>
 
 
-        <h2>Select Store</h2>
+        <h2 class="selectstore">Select Store</h2>
 
         <select id="storeSelect">
             <option value="">-- Choose Store --</option>
@@ -22,11 +22,11 @@
 
         <br><br>
 
-        <button onclick="selectStore()">Enter Store</button>
+        <button onclick="selectStore()" class="enter">Enter Store</button>
 
         <p id="currentStore"></p>
 
-<hr>
+        <hr>
         <!-- Scanner Reader -->
         <div id="reader"></div>
 
@@ -41,19 +41,19 @@
 
         <p id="result">Result: None</p>
 
-        <button onclick="startScanner()">Start</button>
-        <button onclick="checkout()">Checkout</button>
-        <button onclick="stopScanner()">Stop</button>
+        <button onclick="startScanner()"  class="start">Start</button>
+        <button onclick="checkout()"  class="checkoutbotton">Checkout</button>
+        <button onclick="stopScanner()"  class="stop">Stop</button>
 
 
     </div>
-<hr>
+    <hr>
     <!-- Receipt Section -->
-    <h2>Receipt</h2>
+    <h2 class="receiptsection">Receipt</h2>
     <h2 id="receipt"></h2>
 
-<hr>
-<h2>CheckOut Scan</h2>
+    <hr>
+    <h2 class="checkoutscansection">Checkout Scan</h2>
     <!-- qr code generetor -->
     <div id="qrcode"></div>
 

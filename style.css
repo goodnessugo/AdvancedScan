@@ -1,42 +1,61 @@
 body {
-    font-family: Arial, sans-serif;
-    /* background: #111;
+  font-family: Arial, sans-serif;
+  /* background: #111;
     color: white; */
-    text-align: center;
+  text-align: center;
 
-    font-family: Arial;
-    text-align: center;
-    padding: 20px;
+  font-family: Arial;
+  text-align: center;
+  padding: 20px;
 }
 
-
-
 .container {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #reader {
-    width: 300px;
-    margin: auto;
-    border: 3px solid red;
+  width: 300px;
+  margin: auto;
+  border: 3px solid red;
+}
+
+.enter {
+  background-color: rgb(212, 138, 0);
+}
+
+.start {
+  background-color: rgb(82, 82, 82);
+}
+
+.checkoutbotton {
+  background-color: green;
+}
+
+.stop {
+  background-color: rgb(221, 1, 1);
 }
 
 button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    background: red;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 button:hover {
-    background: darkred;
+  background: darkred;
 }
 
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
 
-select, button {
-    padding: 10px;
-    font-size: 16px;
+.receiptsection,
+.checkoutscansection, .selectstore {
+  color: brown;
 }
