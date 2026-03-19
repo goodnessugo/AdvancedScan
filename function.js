@@ -295,10 +295,10 @@ function addQty(code) {
 
 
 // ----------minus quantity button ------------
-function minusQty(code){
+function minusQty(code) {
     cart[code].qty--;
 
-    if(cart[code].qty <= 0) {
+    if (cart[code].qty <= 0) {
         delete cart[code];
     }
 
@@ -318,7 +318,7 @@ function checkout() {
     // updateCart();
 
 
-    if(Object.keys(cart).length === 0) {
+    if (Object.keys(cart).length === 0) {
         alert("Cart is empty");
         return;
     }
@@ -329,36 +329,59 @@ function checkout() {
 
     let receiptHTML = "";
 
-receiptHTML += "<h3>Receipt</h3>";
-receiptHTML += "<p>ID: " + receiptId + "</p>";
-receiptHTML += "<p>Store: " + storeName + "</p>";
-receiptHTML += "<hr>";
+    receiptHTML += "<h3>Receipt</h3>";
+    receiptHTML += "<p>ID: " + receiptId + "</p>";
+    receiptHTML += "<p>Store: " + storeName + "</p>";
+    receiptHTML += "<hr>";
 
 
-let totalAmount = 0;
+    let totalAmount = 0;
 
-for(let code in cart) {
-    let item = cart[code];
+    for (let code in cart) {
+        let item = cart[code];
 
-    let itemTotal = item.price *  item.qty;
+        let itemTotal = item.price * item.qty;
 
-    totalAmount += itemTotal;
+        totalAmount += itemTotal;
 
-    receiptHTML += 
-    item.name + " | ₦" + item.price + "x" + item.qty + " = ₦" + itemTotal + "<br>";
+        receiptHTML +=
+            item.name + " | ₦" + item.price + "x" + item.qty + " = ₦" + itemTotal + "<br>";
 
+    }
+
+    receiptHTML += "<hr>";
+    receiptHTML += "<b>Total: ₦" + totalAmount + "</br>";
+
+    receiptDiv.innerHTML = receiptHTML;
+
+
+    // save receipt
+    saveReceipt(receiptId, totalAmount);
+
+    // gnerate QR Code
+    generateQR(receiptId);
 }
 
-receiptHTML += "<hr>";
-receiptHTML  += "<b>Total: ₦" + totalAmount + "</br>";
-
-receiptDiv.innerHTML = receiptHTML;
 
 
-// save receipt
-saveReceipt(receiptId, totalAmount)
+
+
+
+// generateQR Code receipt
+function generateQR(receiptId){
+    let qrDiv = document.getElementById("qrcode");
+     
+    qrDiv.innerHTML = "";
+
+    let data = localStorage.getItem("last-receipt");
+
+    new QRCode(qrDiv, {
+        text: data,
+        width: 200,
+        height: 200
+    });
+
 }
-
 
 // -----------------SAVE RECEIPT FUNCTION ------------
 function saveReceipt(id, totalAmount) {
