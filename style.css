@@ -69,6 +69,10 @@ button {
 
 
 /* cashier styling */
+.login{
+  background-color: rgb(12, 101, 202);
+}
+
 #verifyReader{
   width: 300px;
 }
@@ -77,3 +81,5 @@ button {
 .verifyBtutton{
   background-color: rgb(12, 101, 202);
 }
+
+
