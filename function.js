@@ -286,7 +286,7 @@ function verifyReceipt(data) {
     try{
         let receipt = JSON.parse(data);
 
-        let saved = JSON.parse(localStorage.getItem(last-receipt));
+        let saved = JSON.parse(localStorage.getItem("last-receipt"));
 
         if(!saved) {
             result.innerText = "No receipt saved";
@@ -299,6 +299,9 @@ function verifyReceipt(data) {
             result.innerText = "INVALID RECEIPT";
         }
     }catch(e) {
+
+        console.log(e);
+        
         result.innerText = "Not a valid QR";
     }
 }
