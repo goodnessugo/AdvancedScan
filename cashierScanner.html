@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Scan App</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Supermarket POS</h1>
+
+
+        <h2 class="selectstore">Select Store</h2>
+
+        <select id="storeSelect">
+            <option value="">-- Choose Store --</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="selectStore()" class="enter">Enter Store</button>
+
+        <p id="currentStore"></p>
+
+        <hr>
+        <!-- Scanner Reader -->
+        <div id="reader"></div>
+
+        <!-- add audio beep sound -->
+        <audio src="./audio/beep2.mp3" id="beep"></audio>
+
+        <h3>Cart</h3>
+        <ul id="cart"></ul>
+
+        <h3 id="total">Total: ₦ 0</h3>
+
+
+        <p id="result">Result: None</p>
+
+        <button onclick="startScanner()" class="start">Start</button>
+        <button onclick="checkout()" class="checkoutbotton">Checkout</button>
+        <button onclick="stopScanner()" class="stop">Stop</button>
+
+
+    </div>
+
+    <hr>
+    <!-- cashier verification -->
+    <h2>Cashier verification</h2>
+    <div id="verifyReader"></div>
+    <button onclick="startVerifyScanner()" class="verifyBtutton">Start Verify Scanner</button>
+    <p id="verifyResult"></p>
+    <!-- end of cashier verification -->
+
+
+
+    <hr>
+    <!-- Receipt Section -->
+    <h2 class="receiptsection">Receipt</h2>
+    <h2 id="receipt"></h2>
+
+    <hr>
+    <h2 class="checkoutscansection">Checkout Scan</h2>
+    <!-- qr code generetor -->
+    <div id="qrcode"></div>
+
+
+
+
+    <!-- QR / Barcode Library Scanner -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <!-- QR Code Generator -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="./function.js"></script>
+</body>
+
+</html>

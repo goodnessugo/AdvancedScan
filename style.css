@@ -64,3 +64,16 @@ button {
 .checkoutscansection, .selectstore {
   color: brown;
 }
+
+
+
+
+/* cashier styling */
+#verifyReader{
+  width: 300px;
+}
+
+
+.verifyBtutton{
+  background-color: rgb(12, 101, 202);
+}

@@ -255,6 +255,60 @@ function startScanner() {
 }
 
 
+
+//-------------- Start Verify Scanner -----------
+function startVerifyScanner() {
+    let verifyScanner = new Html5Qrcode("verifyReader");
+
+    verifyScanner.start(
+        { facingMode: "environment" },
+        {
+            fps: 10,
+            qrbox: 250
+        },
+
+        (decodedText) => {
+            verifyReceipt(decodedText);
+        },
+
+        (error) => {
+            console.log(error);
+        }
+    );
+}
+
+
+// verifyReceipt Function
+
+function verifyReceipt(data) {
+    let result = document.getElementById("verifyResult");
+
+    try{
+        let receipt = JSON.parse(data);
+
+        let saved = JSON.parse(localStorage.getItem(last-receipt));
+
+        if(!saved) {
+            result.innerText = "No receipt saved";
+            return;
+        }
+
+        if(receipt.id === saved.id && receipt.total === saved.total && receipt.store === saved.store) {
+            result.innerText = "VALID RECEIPT";
+        }else {
+            result.innerText = "INVALID RECEIPT";
+        }
+    }catch(e) {
+        result.innerText = "Not a valid QR";
+    }
+}
+
+
+
+
+
+
+
 // updateCart or Show Cart list
 function updateCart() {
 
@@ -368,9 +422,9 @@ function checkout() {
 
 
 // generateQR Code receipt
-function generateQR(receiptId){
+function generateQR(receiptId) {
     let qrDiv = document.getElementById("qrcode");
-     
+
     qrDiv.innerHTML = "";
 
     let data = localStorage.getItem("last-receipt");
